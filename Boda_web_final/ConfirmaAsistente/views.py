@@ -45,7 +45,7 @@ def confirmation(request):
                         id_contacto=d_contacto.objects.get(desc_email=confirmation_contact_form.cleaned_data['desc_email']),
                         id_ninio=d_ninio.objects.get(flag_ninio='No'),
                         id_vegetarian=d_vegetariano.objects.get(id_vegetarian=vegetariano_form.cleaned_data['flag_vegetarian']),
-                        id_intolerancias=d_intolerancias.objects.get(id_intolerancias=confirmation_contact_form.cleaned_data['desc_intolerancias']),
+                        id_intolerancias=d_intolerancias.objects.get(desc_intolerancias=confirmation_contact_form.cleaned_data['id_intolerancias']),
                         id_familia=d_familia.objects.get(flag_familia='Por Asignar'))
                     invitado.save()
 
@@ -136,7 +136,7 @@ def confirmation(request):
                                 id_contacto=d_contacto.objects.get(desc_email=confirmation_contact_form.cleaned_data['desc_email']),
                                 id_ninio=d_ninio.objects.get(flag_ninio='No'),
                                 id_vegetarian=d_vegetariano.objects.get(id_vegetarian=vegetariano_form.cleaned_data['flag_vegetarian']),
-                                id_intolerancias=d_intolerancias.objects.get(id_intolerancias=confirmation_contact_form.cleaned_data['desc_intolerancias']),
+                                id_intolerancias=d_intolerancias.objects.get(desc_intolerancias=confirmation_contact_form.cleaned_data['id_intolerancias']),
                                 id_familia=d_familia.objects.get(flag_familia='Por Asignar'))
                             invitado.save()
 

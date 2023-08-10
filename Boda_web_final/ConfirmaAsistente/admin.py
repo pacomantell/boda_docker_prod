@@ -59,7 +59,7 @@ admin_site = MyAdminSite(name="myadmin")
 
 # Custom dropdown filter for contact
 class ContactFilter(RelatedDropdownFilter):
-    template = 'admin/dropdown_filter.html'
+    template = 'dropdown_filter.html'
 
 
 class ContactoAdmin(admin.ModelAdmin):

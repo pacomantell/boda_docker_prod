@@ -3,7 +3,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
 
-def send_email_confirmation(invitado, vegetariano, intol):
+def send_email_confirmation(invitado, vegetariano):
 
     subject = 'BODA FRANCISCO & RAQUEL: CONFIRMACIÓN DE ASISTENCIA'
     to_email = invitado.cleaned_data['desc_email']
@@ -15,7 +15,7 @@ def send_email_confirmation(invitado, vegetariano, intol):
         'email': invitado.cleaned_data['desc_email'],
         'telefono': invitado.cleaned_data['desc_telefono'],
         'veg': vegetariano.cleaned_data['flag_vegetarian'],
-        'intolerancias': intol.cleaned_data['desc_intolerancias']
+        'intolerancias': invitado.cleaned_data['id_intolerancias']
     }
     html_context = render_to_string('email/email_contact.html', context)
     text_context = strip_tags(html_context)
@@ -25,7 +25,7 @@ def send_email_confirmation(invitado, vegetariano, intol):
     msg.send()
 
 
-def send_email_acomp_confirmation(invitado, vegetariano, intol, list_adultos, list_ninios):
+def send_email_acomp_confirmation(invitado, vegetariano, list_adultos, list_ninios):
 
     subject = 'BODA FRANCISCO & RAQUEL: CONFIRMACIÓN DE ASISTENCIA'
     to_email = invitado.cleaned_data['desc_email']
@@ -37,7 +37,7 @@ def send_email_acomp_confirmation(invitado, vegetariano, intol, list_adultos, li
         'email': invitado.cleaned_data['desc_email'],
         'telefono': invitado.cleaned_data['desc_telefono'],
         'veg': vegetariano.cleaned_data['flag_vegetarian'],
-        'intolerancias': intol.cleaned_data['desc_intolerancias'],
+        'intolerancias': invitado.cleaned_data['id_intolerancias'],
         'list_adultos': list_adultos,
         'list_ninios': list_ninios
     }
